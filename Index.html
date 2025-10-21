@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>APS Gestores Chile - Soluciones Empresariales Integrales</title>
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --primary-color: #C9A961;
+            --secondary-color: #2C3E50;
+            --dark-bg: #343A40;
+            --light-bg: #F8F9FA;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Montserrat', sans-serif;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Navbar */
+        .navbar {
+            background-color: rgba(255, 255, 255, 0.98);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            padding: 1rem 0;
+        }
+        
+        .navbar-brand img {
+            max-height: 60px;
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--secondary-color);
+            font-weight: 500;
+            margin: 0 15px;
+            transition: color 0.3s;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero-section {
+            background: linear-gradient(rgba(44, 62, 80, 0.85), rgba(44, 62, 80, 0.85)), 
+                        url('https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?ixlib=rb-4.0.3') center/cover;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            color: white;
+            position: relative;
+        }
+        
+        .hero-content {
+            padding: 80px 0;
+        }
+        
+        .hero-content h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1.5rem;
+            line-height: 1.2;
+        }
+        
+        .hero-content p {
+            font-size: 1.3rem;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+        
+        /* Contact Form */
+        .contact-form {
+            background: rgba(255, 255, 255, 0.95);
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+        }
+        
+        .contact-form h3 {
+            color: var(--secondary-color);
+            margin-bottom: 1.5rem;
+            font-weight: 600;
+        }
+        
+        .contact-form .form-control {
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 1rem;
+            border: 1px solid #ddd;
+        }
+        
+        .contact-form .form-control:focus {
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 0.2rem rgba(201, 169, 97, 0.25);
+        }
+        
+        .btn-primary-custom {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 12px 40px;
+            border: none;
+            border-radius: 8px;
+            font-weight: 600;
+            width: 100%;
+            transition: all 0.3s;
+        }
+        
+        .btn-primary-custom:hover {
+            background-color: var(--primary-color);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+        }
+        
+        /* Services Section */
+        .services-section {
+            padding: 100px 0;
+            background-color: var(--light-bg);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+        
+        .section-title h2 {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .section-subtitle {
+            color: #007BFF;
+            font-weight: 600;
+            font-size: 1rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+        }
+        
+        .service-card {
+            background: white;
+            padding: 2.5rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+            margin-bottom: 2rem;
+            transition: all 0.3s;
+            height: 100%;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.15);
+        }
+        
+        .service-card .service-icon {
+            width: 80px;
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary-color), #D4B76A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1.5rem;
+            font-size: 2rem;
+            color: white;
+        }
+        
+        .service-card h4 {
+            color: var(--secondary-color);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .service-card ul {
+            list-style: none;
+            padding: 0;
+        }
+        
+        .service-card ul li {
+            padding: 8px 0;
+            color: #666;
+            position: relative;
+            padding-left: 25px;
+        }
+        
+        .service-card ul li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+            font-weight: bold;
+        }
+        
+        /* About Section */
+        .about-section {
+            padding: 100px 0;
+            background: white;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 4rem;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-text h3 {
+            color: var(--secondary-color);
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .about-text p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 1.5rem;
+        }
+        
+        /* Industries Section */
+        .industries-section {
+            padding: 100px 0;
+            background-color: var(--dark-bg);
+            color: white;
+            text-align: center;
+        }
+        
+        .industries-section .section-title h2,
+        .industries-section .section-subtitle {
+            color: white;
+        }
+        
+        .industry-item {
+            margin-bottom: 3rem;
+        }
+        
+        .industry-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+        
+        .industry-item h5 {
+            font-weight: 600;
+            margin-top: 1rem;
+        }
+        
+        /* CTA Section */
+        .cta-section {
+            padding: 80px 0;
+            background: linear-gradient(135deg, var(--primary-color), #D4B76A);
+            color: white;
+            text-align: center;
+        }
+        
+        .cta-section h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1.5rem;
+            font-weight: 700;
+        }
+        
+        .cta-section p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+        }
+        
+        .btn-cta {
+            background-color: white;
+            color: var(--secondary-color);
+            padding: 15px 50px;
+            border-radius: 50px;
+            font-weight: 600;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+        }
+        
+        .btn-cta:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            color: var(--secondary-color);
+        }
+        
+        /* Footer */
+        .footer {
+            background-color: var(--secondary-color);
+            color: white;
+            padding: 3rem 0 1rem;
+        }
+        
+        .footer-logo {
+            max-width: 200px;
+            margin-bottom: 1rem;
+        }
+        
+        .footer p {
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 0.5rem;
+        }
+        
+        .social-links {
+            margin-top: 1rem;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+            margin-right: 1rem;
+            transition: color 0.3s;
+        }
+        
+        .social-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero-content p {
+                font-size: 1.1rem;
+            }
+            
+            .contact-form {
+                padding: 1.5rem;
+                margin-top: 2rem;
+            }
+            
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+        }
+        
+        /* Phone Input */
+        .phone-input {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .phone-input select {
+            flex: 0 0 100px;
+        }
+        
+        .phone-input input {
+            flex: 1;
+        }
+    </style>
+</head>
+<body>
+    
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light fixed-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="logo .png" alt="APS Gestores Chile">
+            </a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a class="nav-link" href="#inicio">Inicio</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#servicios">Servicios</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#nosotros">Nosotros</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#contacto">Contacto</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="inicio" class="hero-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7">
+                    <div class="hero-content">
+                        <h1>Soluciones Empresariales Integrales para tu Negocio</h1>
+                        <p>Potenciamos tu empresa con servicios profesionales de gestión, contabilidad, recursos humanos y asesoría legal especializada.</p>
+                        <p><strong>Expertos en Pymes y Micro Pymes</strong> - Simplificamos tus procesos para que te enfoques en crecer.</p>
+                    </div>
+                </div>
+                <div class="col-lg-5">
+                    <div class="contact-form">
+                        <h3>Contáctanos y hablemos</h3>
+                        <form id="contactForm">
+                            <input type="text" class="form-control" placeholder="Nombre y Apellido" required>
+                            <input type="text" class="form-control" placeholder="Empresa" required>
+                            <input type="email" class="form-control" placeholder="Email Corporativo" required>
+                            <div class="phone-input">
+                                <select class="form-control">
+                                    <option value="+56">🇨🇱 +56</option>
+                                </select>
+                                <input type="tel" class="form-control" placeholder="9 12345678" required>
+                            </div>
+                            <textarea class="form-control" rows="3" placeholder="Consulta"></textarea>
+                            <button type="submit" class="btn-primary-custom">Enviar</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="servicios" class="services-section">
+        <div class="container">
+            <div class="section-title">
+                <p class="section-subtitle">NUESTROS SERVICIOS</p>
+                <h2>Soluciones Completas para tu Empresa</h2>
+            </div>
+            
+            <div class="row">
+                <!-- Gestión Empresarial -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-briefcase"></i>
+                        </div>
+                        <h4>Gestión Empresarial</h4>
+                        <ul>
+                            <li>Análisis empresarial</li>
+                            <li>Estructura de procesos</li>
+                            <li>Apoyo en Pyme y Micro pyme</li>
+                            <li>Constitución de empresas</li>
+                            <li>Formalización</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Contabilidad y Tributaria -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-calculator"></i>
+                        </div>
+                        <h4>Contabilidad y Tributaria</h4>
+                        <ul>
+                            <li>Administración Contable y tributaria</li>
+                            <li>Declaraciones Mensuales (F29)</li>
+                            <li>Regularizaciones</li>
+                            <li>Asesoría tributaria especializada</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Proyectos y Presupuestos -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-graph-up-arrow"></i>
+                        </div>
+                        <h4>Proyectos y Presupuestos</h4>
+                        <ul>
+                            <li>Elaboración de proyectos</li>
+                            <li>Presupuestos detallados</li>
+                            <li>Análisis de viabilidad</li>
+                            <li>Planificación estratégica</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Recursos Humanos -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-people"></i>
+                        </div>
+                        <h4>Recursos Humanos</h4>
+                        <ul>
+                            <li>RRHH / Recursos Humanos</li>
+                            <li>Manejo de Portales DT</li>
+                            <li>Gestión de nóminas</li>
+                            <li>Contratos y finiquitos</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Trámites Legales -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-file-text"></i>
+                        </div>
+                        <h4>Trámites Legales</h4>
+                        <ul>
+                            <li>Manejo de Poder Judicial</li>
+                            <li>Trámites generales</li>
+                            <li>PATENTES</li>
+                            <li>Documentación legal</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <!-- Asesoría Integral -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="service-card">
+                        <div class="service-icon">
+                            <i class="bi bi-chat-square-text"></i>
+                        </div>
+                        <h4>Asesoría Integral</h4>
+                        <ul>
+                            <li>Consultoría personalizada</li>
+                            <li>Optimización de procesos</li>
+                            <li>Estrategias de crecimiento</li>
+                            <li>Soporte continuo</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="nosotros" class="about-section">
+        <div class="container">
+            <div class="row about-content">
+                <div class="col-lg-6">
+                    <div class="about-image">
+                        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3" alt="Equipo APS">
+                    </div>
+                </div>
+                <div class="col-lg-6">
+                    <div class="about-text">
+                        <p class="section-subtitle">¿QUIÉNES SOMOS?</p>
+                        <h3>Expertos en Gestión Empresarial al Servicio de tu Éxito</h3>
+                        <p>En <strong>APS Gestores Chile</strong> somos especialistas en brindar soluciones integrales para empresas, con un enfoque particular en Pymes y Micro Pymes. Nuestro equipo de profesionales certificados cuenta con amplia experiencia en gestión empresarial, contabilidad, recursos humanos y asesoría legal.</p>
+                        <p>Entendemos que cada empresa es única, por eso desarrollamos estrategias personalizadas que se adaptan a las necesidades específicas de tu negocio, optimizando procesos y maximizando resultados.</p>
+                        <p><strong>Nuestra misión</strong> es simplificar la gestión de tu empresa para que puedas concentrarte en lo que realmente importa: hacer crecer tu negocio.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Industries Section -->
+    <section class="industries-section">
+        <div class="container">
+            <div class="section-title">
+                <p class="section-subtitle">SECTORES QUE ATENDEMOS</p>
+                <h2>Experiencia en Múltiples Industrias</h2>
+            </div>
+            
+            <div class="row">
+                <div class="col-lg-3 col-md-6">
+                    <div class="industry-item">
+                        <div class="industry-icon">
+                            <i class="bi bi-building"></i>
+                        </div>
+                        <h5>Comercio</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="industry-item">
+                        <div class="industry-icon">
+                            <i class="bi bi-gear"></i>
+                        </div>
+                        <h5>Servicios</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="industry-item">
+                        <div class="industry-icon">
+                            <i class="bi bi-tools"></i>
+                        </div>
+                        <h5>Construcción</h5>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-6">
+                    <div class="industry-item">
+                        <div class="industry-icon">
+                            <i class="bi bi-laptop"></i>
+                        </div>
+                        <h5>Tecnología</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="contacto" class="cta-section">
+        <div class="container">
+            <h2>¿Listo para potenciar tu empresa?</h2>
+            <p>Contáctanos hoy y descubre cómo podemos ayudarte a alcanzar tus objetivos</p>
+            <a href="#inicio" class="btn-cta">Hablemos</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <img src="logo .png" alt="APS Gestores Chile" class="footer-logo">
+                    <p>Soluciones empresariales integrales para el éxito de tu negocio.</p>
+                    <p>&copy; 2025 APS Gestores Chile. Todos los derechos reservados.</p>
+                </div>
+                <div class="col-md-6 text-md-end">
+                    <h5>Contáctanos</h5>
+                    <p><i class="bi bi-envelope"></i> contacto@apsgestores.cl</p>
+                    <p><i class="bi bi-telephone"></i> +56 9 1234 5678</p>
+                    <div class="social-links">
+                        <a href="#"><i class="bi bi-facebook"></i></a>
+                        <a href="#"><i class="bi bi-linkedin"></i></a>
+                        <a href="#"><i class="bi bi-instagram"></i></a>
+                        <a href="#"><i class="bi bi-whatsapp"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Form submission
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('¡Gracias por contactarnos! Te responderemos pronto.');
+            this.reset();
+        });
+
+        // Navbar background on scroll
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 50) {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 1)';
+            } else {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.98)';
+            }
+        });
+    </script>
+</body>
+</html>
